@@ -1,29 +1,32 @@
 <script>
-	export let name;
+import { onMount } from "svelte";
+
+	onMount(async() => {
+		const response = await fetch("http://localhost:7000/eco");
+		console.log( await response.json())
+
+	})
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<div class="container">
+	<header></header>
+	<main></main>
+	<footer></footer>
+</div>
 
 <style>
-	main {
+	.container {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
 		margin: 0 auto;
+		background-image: url('/asset/background.jpg');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		height: 100%;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
 
 	@media (min-width: 640px) {
-		main {
+		.container {
 			max-width: none;
 		}
 	}
