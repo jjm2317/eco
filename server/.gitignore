@@ -2,3 +2,9 @@
 /public/build/
 
 .DS_Store
+
+*.DS_Store
+*.csv
+*.docx
+*.pdf
+*.xlsx
