@@ -9,15 +9,30 @@ app.use(express.json()); // for parsing application/json
 console.log(process.argv[2]);
 
 const fs = require('fs');
-const filename = process.argv[2];
-fs.readFile('./file.txt', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log('OK: ' + filename);
-  console.log(data);
-});
 
 app.get('/eco', (req, res) => {
-  res.send();
+  fs.readFile(process.argv[2], 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+    const arr = data
+      .split('\n')
+      .filter((row) => !/[A-Za-z]/gi.test(row) && row.length > 0)
+      .map((row) =>
+        row
+          .replace('\r', '')
+          .split(' ')
+          .map((v) => +v),
+      );
+    const newestIndex = arr.length - 1;
+    res.send(
+      JSON.parse(
+        JSON.stringify({
+          newest: arr[newestIndex],
+          prev: arr[newestIndex - 1],
+        }),
+      ),
+    );
+  });
 });
 
 app.listen('7000', () => {
