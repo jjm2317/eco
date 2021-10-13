@@ -1,17 +1,44 @@
 <script>
 import { onMount } from "svelte";
 
-	onMount(async() => {
-		const response = await fetch("http://localhost:7000/eco");
-		console.log( await response.json())
+import Address from "./components/Address.svelte";
+import CurrentTime from "./components/CurrentTime.svelte";
+import PrevTable from "./components/PrevTable.svelte";
+import StateList from "./components/StateList.svelte";
+import Status from "./components/Status.svelte";
+import { Jumper } from 'svelte-loading-spinners'
 
+import { onInterval } from "./util";
+	const getEcoData = async () => {
+		const response = await fetch("http://localhost:7000/eco");
+		return await response.json();
+	}
+
+	let eco;
+	onMount(async () => {
+		eco = await getEcoData()
 	})
+	onInterval(async() => {
+		eco = await getEcoData();
+	}, 5000)
 </script>
 
 <div class="container">
-	<header></header>
-	<main></main>
-	<footer></footer>
+	{#if !eco}
+	<Jumper size="60" color="#FF3E00" unit="px" duration="1s"></Jumper>
+	{:else}
+	<header>
+		<PrevTable prev={eco.prev}/>
+		<CurrentTime/>
+	</header>
+	<main>
+		<Status/>
+		<StateList/>
+	</main>
+	<footer>
+		<Address/>
+	</footer>
+	{/if}
 </div>
 
 <style>
