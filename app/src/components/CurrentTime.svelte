@@ -9,3 +9,9 @@
 
 <time>{currentTime}</time>
 
+<style>
+    time {
+        font-size: 25px;
+    }
+</style>
+

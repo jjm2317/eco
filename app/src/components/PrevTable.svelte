@@ -6,8 +6,8 @@
 
 <table>
     <tr>
-        {#each prev as prevState (prevState)}
-        <td>prevState</td>
+        {#each prev.filter((_, i) => i > 0) as prevState (prevState)}
+        <td>{prevState}</td>
         {/each}
     </tr>
 </table>
@@ -15,5 +15,7 @@
 <style>
     table td{
         border: 1px solid #000;
+        background-color: #fff;
+        padding: 10px 15px;
     }
 </style>

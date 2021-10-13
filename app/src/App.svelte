@@ -32,7 +32,7 @@ import { onInterval } from "./util";
 		<CurrentTime/>
 	</header>
 	<main>
-		<Status/>
+		<Status status={eco.newest[1] > 5 ? "good" : eco.newest[1] < 5 ? "bad": "normal" }/>
 		<StateList/>
 	</main>
 	<footer>
@@ -49,6 +49,13 @@ import { onInterval } from "./util";
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		height: 100%;
+		padding: 10px;
+	}
+
+	header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 
 
