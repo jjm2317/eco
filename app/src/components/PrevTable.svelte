@@ -1,12 +1,12 @@
 
 
 <script>
-    export let prev;
+    export let prev = [];
 </script>
 
 <table>
     <tr>
-        {#each prev.filter((_, i) => i > 0) as prevState (prevState)}
+        {#each prev?.filter((_, i) => i > 0) as prevState (prevState)}
         <td>{prevState}</td>
         {/each}
     </tr>

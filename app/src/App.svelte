@@ -28,7 +28,7 @@ import { onInterval } from "./util";
 	<Jumper size="60" color="#FF3E00" unit="px" duration="1s"></Jumper>
 	{:else}
 	<header>
-		<PrevTable prev={eco.prev}/>
+		<PrevTable prev={eco.prev || []}/>
 		<CurrentTime/>
 	</header>
 	<main>

@@ -1,11 +1,11 @@
 <script>
-    export let newestStates;
-    const STATES = ["온도" , "DO", "TDS", "ORP", "PH", "Turbidity"];
+    export let newestStates = [];
+    const STATES =  ["DO", "TDS", "ORP", "PH", "Turbidity"];
 </script>
 
 <section>
     <ul>
-        {#each newestStates.filter((_,i) => i > 0) as state, i  }
+        {#each newestStates?.filter((_,i) => i > 1) as state, i  }
         <li>
             <figure>
                 <div>
@@ -13,7 +13,7 @@
                     <span>{state}</span>
                 </div>
                 <figcaption>{STATES[i]}</figcaption>
-            </figure>
+            </figure>   
         </li>  
         {/each}
     </ul>
