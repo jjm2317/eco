@@ -13,6 +13,9 @@
 </table>
 
 <style>
+    table {
+        height: 40px;
+    }
     table td{
         border: 1px solid #000;
         background-color: #fff;

@@ -36,7 +36,7 @@ import { onInterval } from "./util";
 		<StateList newestStates={eco.newest}/>
 	</main>
 	<footer>
-		<Address/>
+		<Address address="주소 : 대전시 유성구 한밭대학교"/>
 	</footer>
 	{/if}
 </div>
@@ -56,6 +56,12 @@ import { onInterval } from "./util";
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+	}
+	footer {
+		height: 150px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
 	}
 
 

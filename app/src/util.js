@@ -39,7 +39,8 @@ export const getCurrentTime = () => {
   minute = minute < 10 ? '0' + minute : minute;
   second = second < 10 ? '0' + second : second;
 
-  const now = `${year}년 ${month}월 ${date}일 ${ampm} ${hour}:${minute}`;
+  const now = `${year}년 ${month}월 ${date}일 
+  ${ampm} ${hour}:${minute}`;
 
   return now;
 };
