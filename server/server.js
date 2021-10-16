@@ -11,16 +11,19 @@ console.log(process.argv[2]);
 const fs = require('fs');
 
 app.get('/eco', (req, res) => {
+  // process.argv[2] : name of txt file
   fs.readFile(process.argv[2], 'utf8', (err, data) => {
     if (err) throw err;
-    console.log(data);
     const arr = data
       .split('\n')
-      .filter((row) => !/[A-Za-z]/gi.test(row) && row.length > 0)
+      // exclude weird values like english, empty str
+      .filter((row) => !/[A-Za-z]/gi.test(row) && row.length > 5)
+      // make str to array of number array
       .map((row) =>
         row
           .replace('\r', '')
           .split(' ')
+          .filter((str) => str !== '')
           .map((v) => +v),
       );
     const newestIndex = arr.length - 1;

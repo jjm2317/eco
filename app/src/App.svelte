@@ -9,6 +9,7 @@ import Status from "./components/Status.svelte";
 import { Jumper } from 'svelte-loading-spinners'
 
 import { onInterval } from "./util";
+	// fetch data : newest data, previous data
 	const getEcoData = async () => {
 		const response = await fetch("http://localhost:7000/eco");
 		return await response.json();
@@ -18,6 +19,7 @@ import { onInterval } from "./util";
 	onMount(async () => {
 		eco = await getEcoData()
 	})
+	// fetch data per 5 seconds
 	onInterval(async() => {
 		eco = await getEcoData();
 	}, 5000)

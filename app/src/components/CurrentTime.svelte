@@ -2,6 +2,7 @@
     import {getCurrentTime, onInterval} from '../util';
 
     let currentTime = getCurrentTime();
+    // set current time per 1s
     onInterval(() => {
         currentTime = getCurrentTime();
     }, 1000)

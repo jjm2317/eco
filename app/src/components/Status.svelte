@@ -3,6 +3,7 @@
     export let status;
 </script>
 <section>
+    <!-- default status: normal (if data is null) -->
     {#if status === "bad"}
     <figure>
         <img src="/asset/bad.png" alt="bad" width="200" height="160">
