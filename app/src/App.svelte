@@ -33,7 +33,7 @@ import { onInterval } from "./util";
 	</header>
 	<main>
 		<Status status={eco.newest[1] > 5 ? "good" : eco.newest[1] < 5 ? "bad": "normal" }/>
-		<StateList/>
+		<StateList newestStates={eco.newest}/>
 	</main>
 	<footer>
 		<Address/>
