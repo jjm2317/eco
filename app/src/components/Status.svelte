@@ -11,7 +11,7 @@
 
     </figure>
     
-    {:else if status ===" good"}
+    {:else if status ==="good"}
     <figure>
         <img src="/asset/good.png" alt="good" width="170" height="150">
         <figcaption class="good">좋음</figcaption>

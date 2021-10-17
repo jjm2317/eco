@@ -6,7 +6,7 @@
 <table>
     <tr>
         <!-- show datas except index, 온도 -->
-        {#each prev?.filter((_, i) => i > 1) as prevState (prevState)}
+        {#each prev?.filter((_, i) => i > 0) as prevState (prevState)}
         <td>{prevState}</td>
         {/each}
     </tr>

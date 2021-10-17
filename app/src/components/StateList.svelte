@@ -6,7 +6,7 @@
 <section>
     <ul>
         <!-- show datas except index, 온도 -->
-        {#each newestStates?.filter((_,i) => i > 1) as state, i  }
+        {#each newestStates?.filter((_,i) => i > 0) as state, i  }
         <li>
             <figure>
                 <div>
